@@ -1,0 +1,8 @@
+type: app
+image: python:3.12-alpine
+strategy: parallel
+builds:
+  - files: ["*"]
+runtime:
+  port: 8000
+  cmd: python -m http.server 8000

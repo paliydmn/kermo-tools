@@ -1,0 +1,55 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  # What Kermo checks before it takes the catalog: the index is what the folders make, and it's signed by kermo-tools.pub.
+  catalog:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh scripts/verify.sh
+
+  # Each script on each system the catalog promises: it parses there, and what only reads the system runs; its output
+  # goes on to the macOS job.
+  linux:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ["debian:12", "ubuntu:24.04", "fedora:41", "alpine:3.20"]
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker run --rm -v "$PWD:/w" -w /w "${{ matrix.image }}" sh scripts/run-on-linux.sh out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recorded-${{ strategy.job-index }}
+          path: out/
+
+  # Kermo's own checks (tools-lint, built from Kermo's source): every preset loads, and each reads the recorded output
+  # here (fixtures/) and what the Linux jobs just recorded.
+  presets:
+    needs: linux
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: paliydmn/kermo
+          path: kermo
+      - run: swift build -c release --product tools-lint --package-path kermo
+      - uses: actions/download-artifact@v4
+        with:
+          path: recorded
+      - name: Presets load
+        run: |
+          for f in $(find tools community -path '*/[0-9]*/*.json' 2>/dev/null); do
+            kermo/.build/release/tools-lint "$f" || failed=1
+          done
+          exit ${failed:-0}
+      - name: Presets read recorded output
+        run: |
+          presets=$(for d in tools/*/; do v=$(ls -d "$d"* | sort -t/ -k3 -n | tail -1); echo "$v/$(basename "$d").json"; done)
+          kermo/.build/release/tools-lint --fixtures fixtures $presets
+          for d in recorded/*/; do echo "== $d"; kermo/.build/release/tools-lint --fixtures "$d" $presets; done

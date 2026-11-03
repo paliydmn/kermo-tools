@@ -1,0 +1,9 @@
+{
+  "updated_at": "2026-11-01T12:45:20.487375734Z",
+  "kind": "app",
+  "active_version": 1,
+  "last_version": 2,
+  "last_status": "check",
+  "supervised": true,
+  "candidate_version": 2
+}

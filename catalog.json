@@ -1,0 +1,129 @@
+{
+  "catalog": 1,
+  "serial": 2,
+  "tools": [
+    {
+      "id": "dpl",
+      "title": "Deployments",
+      "version": 6,
+      "verified": true,
+      "tool": "dpl",
+      "icon": "shippingbox",
+      "about": "Apps deployed with dpl (dpl.cesbo.com): state, logs, deploy, roll back; traffic and errors per domain.",
+      "files": [
+        {
+          "path": "tools/dpl/6/dpl.json",
+          "sha256": "375273412b5c22dfb692bf5cb937ad737605f2147c7b50398a8b5d146cb20f95"
+        },
+        {
+          "path": "tools/dpl/6/dpl.traffic.sh",
+          "sha256": "f3fc684bb01ff00d2331fa1b900f62d48e1d551ff8f74a6403d071ac8fd1ae10"
+        }
+      ]
+    },
+    {
+      "id": "fail2ban",
+      "title": "Banned IPs",
+      "version": 1,
+      "verified": true,
+      "tool": "fail2ban",
+      "icon": "hand.raised",
+      "about": "Addresses fail2ban has banned, by jail: look one up, unban, ban by hand.",
+      "files": [
+        {
+          "path": "tools/fail2ban/1/fail2ban.json",
+          "sha256": "92b176bb6174bf439b6d143573e29c9ad084f829e5c882de0bf43f59302e85aa"
+        },
+        {
+          "path": "tools/fail2ban/1/fail2ban.list.sh",
+          "sha256": "9f65e44550f9a22d84b9cd56521eebd0c71c19469d48491dc279902eee6c7de8"
+        }
+      ]
+    },
+    {
+      "id": "restic",
+      "title": "Backups",
+      "version": 1,
+      "verified": true,
+      "tool": "restic",
+      "icon": "externaldrive.badge.timemachine",
+      "about": "restic snapshots on a server: when the last one was made, what's in it, restore files; alerts when a backup is late.",
+      "author": "Kermo",
+      "files": [
+        {
+          "path": "tools/restic/1/restic.json",
+          "sha256": "433d8e8dfb7e1f2ada6d047b317ebf49b60de374ac1847349c0192fbc9d6ba3e"
+        }
+      ]
+    },
+    {
+      "id": "sites",
+      "title": "Sites",
+      "version": 1,
+      "verified": true,
+      "icon": "globe",
+      "about": "Is the site up: status, response time and the TLS certificate's days left, checked from this Mac for the addresses you saved on the server.",
+      "files": [
+        {
+          "path": "tools/sites/1/sites.json",
+          "sha256": "62aaddb7ecc30d7e8fe0f1ee612c7d4bf79b57a63a85c7e7c01cad59a5295023"
+        }
+      ]
+    },
+    {
+      "id": "sysinfo",
+      "title": "Server Info",
+      "version": 2,
+      "verified": true,
+      "icon": "gauge",
+      "about": "For support: a report of the machine (OS, CPU, RAM, disks, GPU, network), load now and live, traffic, top processes.",
+      "files": [
+        {
+          "path": "tools/sysinfo/2/sysinfo.json",
+          "sha256": "51a2a4a0e760255f91ef8f06c23dd92543d52a806a3f2f94ee0a1a6049028b4f"
+        },
+        {
+          "path": "tools/sysinfo/2/sysinfo.report.sh",
+          "sha256": "5a20902d2750440bcf61fb32810e6903dc347ffb5b728e07b000739fe21c2813"
+        },
+        {
+          "path": "tools/sysinfo/2/sysinfo.traffic.sh",
+          "sha256": "d4a472af56b6af52b90265e5221c409c3a8190a1af87ec2160bcae08ae3b936a"
+        }
+      ]
+    },
+    {
+      "id": "system",
+      "title": "System",
+      "version": 1,
+      "verified": true,
+      "icon": "gauge",
+      "about": "Live CPU, memory, load, disks, network and disk I/O, top processes, failed services and containers; alerts when a server needs you.",
+      "files": [
+        {
+          "path": "tools/system/1/system.json",
+          "sha256": "ad64a72797108335e86f1f814c81157229d53b64b41d7ddc6efc946ba547818a"
+        },
+        {
+          "path": "tools/system/1/system.stream.sh",
+          "sha256": "e0cd5bc9174eda06860445fc4660a075c1575199631cc27f399bd5c44e10c79d"
+        }
+      ]
+    },
+    {
+      "id": "ufw",
+      "title": "Firewall",
+      "version": 2,
+      "verified": true,
+      "tool": "ufw",
+      "icon": "shield.lefthalf.filled",
+      "about": "ufw rules: what's open and to whom; allow a port, block an address, delete a rule.",
+      "files": [
+        {
+          "path": "tools/ufw/2/ufw.json",
+          "sha256": "4cf963bdffeddc36532cf82003f53ff0fd1d842d1b6603c1329ce71a47b988c9"
+        }
+      ]
+    }
+  ]
+}
