@@ -31,8 +31,9 @@ jobs:
   # here (fixtures/) and what the Linux jobs just recorded.
   presets:
     needs: linux
-    runs-on: macos-15
+    runs-on: xcode-27   # Kermo's code needs Swift 6.4: macos-15's 6.1 and macos-26's 6.3 can't build it
     steps:
+      - run: swift --version
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
         with:
