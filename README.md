@@ -42,7 +42,8 @@ repository, "verified" that it was reviewed.
 
 - **catalog**: `catalog.json` is what the folders make, and its signature checks with `kermo-tools.pub`.
 - **linux** (Debian 12, Ubuntu 24.04, Fedora 41, Alpine 3.20): every script parses under that system's `sh` (dash, bash,
-  busybox); System's stream and Server Info's report run there, their output kept.
+  busybox); System's stream, its one-off list of every process (`ONCE=1 TOP=0`) and Server Info's report run there,
+  their output kept. Debian's and Fedora's images have no `ps`: there the list is empty, as on such a server.
 - **presets** (macOS): `tools-lint`, built from Kermo's source, loads every preset, and parses `fixtures/` and what the
   Linux jobs recorded with the newest version of each tool.
 

@@ -1,6 +1,6 @@
 {
   "catalog": 1,
-  "serial": 2,
+  "serial": 3,
   "tools": [
     {
       "id": "dpl",
@@ -17,6 +17,26 @@
         },
         {
           "path": "tools/dpl/6/dpl.traffic.sh",
+          "sha256": "f3fc684bb01ff00d2331fa1b900f62d48e1d551ff8f74a6403d071ac8fd1ae10"
+        }
+      ]
+    },
+    {
+      "id": "dpl",
+      "title": "Deployments",
+      "version": 8,
+      "verified": true,
+      "tool": "dpl",
+      "icon": "shippingbox",
+      "about": "Apps deployed with dpl (dpl.cesbo.com): state, logs, deploy, roll back; traffic and errors per domain.",
+      "minKermo": "2.0",
+      "files": [
+        {
+          "path": "tools/dpl/8/dpl.json",
+          "sha256": "c5cb3ec61d25d2760c6aeb77a75867688f24a04b3794f76a3605e55cc42cc848"
+        },
+        {
+          "path": "tools/dpl/8/dpl.traffic.sh",
           "sha256": "f3fc684bb01ff00d2331fa1b900f62d48e1d551ff8f74a6403d071ac8fd1ae10"
         }
       ]
@@ -71,6 +91,21 @@
       ]
     },
     {
+      "id": "sites",
+      "title": "Sites",
+      "version": 2,
+      "verified": true,
+      "icon": "globe",
+      "about": "Is the site up: status, response time and the TLS certificate's days left, checked from this Mac for the addresses you saved on the server.",
+      "minKermo": "2.0",
+      "files": [
+        {
+          "path": "tools/sites/2/sites.json",
+          "sha256": "567f305e25ccdab54e4b18493e41ac06edaa37a5190d4c59c7f99f68e2bd5fc3"
+        }
+      ]
+    },
+    {
       "id": "sysinfo",
       "title": "Server Info",
       "version": 2,
@@ -107,6 +142,29 @@
         {
           "path": "tools/system/1/system.stream.sh",
           "sha256": "e0cd5bc9174eda06860445fc4660a075c1575199631cc27f399bd5c44e10c79d"
+        }
+      ]
+    },
+    {
+      "id": "system",
+      "title": "System",
+      "version": 3,
+      "verified": true,
+      "icon": "gauge",
+      "about": "Live CPU, memory, load, disks, network and disk I/O, top processes, failed services and containers; alerts when a server needs you.",
+      "minKermo": "2.0",
+      "files": [
+        {
+          "path": "tools/system/3/system.deleted.sh",
+          "sha256": "7fbfd89bbe42fbd88b75371c5ff0846a38d91e3a99bdb1d9cd3c63f66e92c60e"
+        },
+        {
+          "path": "tools/system/3/system.json",
+          "sha256": "5173d54cfca3dfb26551c5050544b7c688bd3f67d779817ed93cd099976cc736"
+        },
+        {
+          "path": "tools/system/3/system.stream.sh",
+          "sha256": "02f2e2c6331c999eabac85d9b85799bef7e052969286b331e366ca257bf0f105"
         }
       ]
     },
