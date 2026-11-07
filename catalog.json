@@ -1,6 +1,6 @@
 {
   "catalog": 1,
-  "serial": 3,
+  "serial": 4,
   "tools": [
     {
       "id": "dpl",
@@ -148,22 +148,22 @@
     {
       "id": "system",
       "title": "System",
-      "version": 3,
+      "version": 4,
       "verified": true,
       "icon": "gauge",
       "about": "Live CPU, memory, load, disks, network and disk I/O, top processes, failed services and containers; alerts when a server needs you.",
       "minKermo": "2.0",
       "files": [
         {
-          "path": "tools/system/3/system.deleted.sh",
+          "path": "tools/system/4/system.deleted.sh",
           "sha256": "7fbfd89bbe42fbd88b75371c5ff0846a38d91e3a99bdb1d9cd3c63f66e92c60e"
         },
         {
-          "path": "tools/system/3/system.json",
-          "sha256": "5173d54cfca3dfb26551c5050544b7c688bd3f67d779817ed93cd099976cc736"
+          "path": "tools/system/4/system.json",
+          "sha256": "ea3c0d9233fb5ba8800b7fbe8a4be10623929be56f28c3440b33694ec1ff6d09"
         },
         {
-          "path": "tools/system/3/system.stream.sh",
+          "path": "tools/system/4/system.stream.sh",
           "sha256": "02f2e2c6331c999eabac85d9b85799bef7e052969286b331e366ca257bf0f105"
         }
       ]
