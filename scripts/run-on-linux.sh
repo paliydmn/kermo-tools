@@ -13,6 +13,8 @@ done
 newest() { ls -d "tools/$1"/* | sort -t/ -k3 -n | tail -1; }
 EVERY=1 timeout 5 sh "$(newest system)/system.stream.sh" > "$out/system.stream.jsonl"
 [ -s "$out/system.stream.jsonl" ] || { echo "✕ system.stream.sh printed nothing"; failed=1; }
+ONCE=1 TOP=0 timeout 15 sh "$(newest system)/system.stream.sh" > "$out/system.list.json"   # All Processes: one line, every process
+[ -s "$out/system.list.json" ] || { echo "✕ system.stream.sh with ONCE=1 TOP=0 printed nothing"; failed=1; }
 sh "$(newest sysinfo)/sysinfo.report.sh" > "$out/sysinfo.report.txt" || { echo "✕ sysinfo.report.sh failed"; failed=1; }
-[ "$failed" = 0 ] && echo "✓ $(sed -n 's/^PRETTY_NAME=//p' /etc/os-release | tr -d '"'): scripts parse, system and sysinfo run"
+[ "$failed" = 0 ] && echo "✓ $(sed -n 's/^PRETTY_NAME=//p' /etc/os-release | tr -d '"'): scripts parse, system (stream and list) and sysinfo run"
 exit "$failed"
